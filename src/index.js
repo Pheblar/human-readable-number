@@ -1,518 +1,169 @@
 module.exports = function toReadable (number) {
+    let numArr = [];
+    let numArrContainer;
     number = String(number);
     number = number.split('');
+    const oneLit = function (unitName) {
+        number = unitName;
+        return number;
+    }
+    const arrLooper = function (indexArr) {
+        switch (number[indexArr]) {
+            case '1': 
+                oneLit('one');
+            case '2':
+                oneLit('two');
+            case '3':
+                oneLit('three');
+            case '4':
+                oneLit('four');
+            case '5': 
+                oneLit('five');
+            case '6': 
+                oneLit('six');
+            case '7':
+                oneLit('seven');
+            case '8':
+                oneLit('eight');
+            case '9':
+                oneLit('nine');
+            case '0':
+                oneLit('zero');
+        } 
+    }
+    const unitAdder = function(y) {
+        numArr.push(y);
+        numArrContainer = numArr.join(' ');
+        return numArrContainer;
+    }
+    const unitCounter = function (i) {
+        switch (number[i]) {
+            case '1':
+                unitAdder('one')
+            case '2':
+                unitAdder('two')
+            case '3':
+                unitAdder('three')
+            case '4':
+                unitAdder('four')
+            case '5':
+                unitAdder('five')
+            case '6':
+                unitAdder('six')
+            case '7':
+                unitAdder('seven')
+            case '8':
+                unitAdder('eight')
+            case '9':
+                unitAdder('nine')
+        }
+    }
+    const decimCouter = function (j) {
+        switch (number[j]) {
+            case '2':
+                numArr.unshift('twenty');
+                unitCounter(1);
+            case '3':
+                numArr.unshift('therty');
+                unitCounter(1);
+            case '4':
+                numArr.unshift('fourty');
+                unitCounter(1);
+            case '5':
+                numArr.unshift('fifthy');
+                unitCounter(1);
+            case '6':
+                numArr.unshift('sixty');
+                 unitCounter(1);
+            case '7':
+                numArr.unshift('seventy');
+                unitCounter(1); 
+            case '8':
+                numArr.unshift('eighty');
+                unitCounter(1);
+            case '9':
+                numArr.unshift('ninety');
+                unitCounter(1);
+        }
+    }
     if (number.length === 1) {
-        if (number[0] === '1') {
-            number.join('');
-            number = 'one';
-            return number;
-        }
-        if (number[0] === '2') {
-            number.join('');
-            number = 'two';
-            return number;
-        }
-        if (number[0] === '3') {
-            number.join('');
-            number = 'three';
-            return number;
-        }
-        if (number[0] === '4') {
-            number.join('');
-            number = 'four';
-            return number;
-        }
-        if (number[0] === '5') {
-            number.join('');
-            number = 'five';
-            return number;
-        }
-        if (number[0] === '6') {
-            number.join('');
-            number = 'six';
-            return number;
-        }
-        if (number[0] === '7') {
-            number.join('');
-            number = 'seven';
-            return number;
-        }
-        if (number[0] === '8') {
-            number.join('');
-            number = 'eight';
-            return number;
-        }
-        if (number[0] === '9') {
-            number.join('');
-            number = 'nine';
-            return number;
-        }
-        if (number[0] === '0') {
-            number.join('');
-            number = 'zero';
-            return number;
-        }
+        arrLooper(0);
     }
     else if (number.length === 2) {
-        let twenty = [];
-        let a;
-        if (number[0] === '1' && number[1] === '0') {
-            number = 'ten';
-            return number;
-        }
-        if (number[0] === '1' && number[1] === '1') {
-            number = 'eleven';
-            return number;
-        }
-        if (number[0] === '1' && number[1] === '2') {
-            number = 'twelve';
-            return number;
-        }
-        if (number[0] === '1' && number[1] === '3') {
-            number = 'thirteen';
-            return number;
-        }
-        if (number[0] === '1' && number[1] === '5') {
-            number = 'fifteen';
-            return number;
-        }
-        if (number[0] === '2' && number[1] === '0') {
-            number = 'twenty';
-            return number;
-        }
-        if (number[0] === '3' && number[1] === '0') {
-            number = 'thirty';
-            return number;
-        }
-        if (number[0] === '2') {
-               twenty.unshift('twenty');
-               if (number[1] === '1') {
-                    twenty.push('one');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '2') {
-                    twenty.push('two');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '3') {
-                    twenty.push('three');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '4') {
-                    twenty.push('four');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '5') {
-                    twenty.push('five');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '6') {
-                    twenty.push('six');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '7') {
-                    twenty.push('seven');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '8') {
-                    twenty.push('eight');
-                    a = twenty.join(' ');
-                    return a;
-            }
-                if (number[1] === '9') {
-                    twenty.push('nine');
-                    a = twenty.join(' ');
-                    return a;
-            }
-            }
-        if (number[0] === '3') {
-            twenty.unshift('therty');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            }
-        if (number[0] === '4') {
-            twenty.unshift('fourty');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            }
-        if (number[0] === '5') {
-            twenty.unshift('fifty');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            }
-        if (number[0] === '6') {
-            twenty.unshift('sixty');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            } 
-        if (number[0] === '7') {
-            twenty.unshift('seventy');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            }
-        if (number[0] === '8') {
-            twenty.unshift('eighty');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            }
-        if (number[0] === '9') {
-            twenty.unshift('ninety');
-                if (number[1] === '1') {
-                     twenty.push('one');
-                     a = twenty.join(' ');
-                     return a;
-            }
-               if (number[1] === '2') {
-                     twenty.push('two');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '3') {
-                     twenty.push('three');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '4') {
-                     twenty.push('four');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '5') {
-                     twenty.push('five');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '6') {
-                     twenty.push('six');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '7') {
-                     twenty.push('seven');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '8') {
-                     twenty.push('eight');
-                     a = twenty.join(' ');
-                     return a;
-            }
-                 if (number[1] === '9') {
-                     twenty.push('nine');
-                     a = twenty.join(' ');
-                     return a;
-            }
-            }
-        }
-    if (number.length === 3) {
-        let hundered = [];
-        let b;
+            switch (number[0]) {
+                case '1' && '0':
+                    oneLit('ten');
+                case '1' && '1':
+                    oneLit('eleven');
+                case '1' && '2':
+                    oneLit('twelve'); 
+                case '1' && '3':
+                    oneLit('thirteen');
+                case '1' && '5':
+                    oneLit('fifteen');
+                case '2' && '0':
+                    oneLit('twenty');
+                case '3' && '0':
+                    oneLit('thirty');
+                }
+            decimCouter(0);   
+            }
+    else if (number.length === 3) {
         if (number[0] === '1' && number[1] === '0' && number[2] === '0') {
-            number = 'one hundered';
-            return number;
+            oneLit('one hundered')
         }  
         if (number[0] === '2' && number[1] === '0' && number[2] === '0') {
-            number = 'two hundered';
-            return number;
+            oneLit('rwo hundered')
         }  
         if (number[0] === '3' && number[1] === '0' && number[2] === '0') {
-            number = 'three hundered';
-            return number;
+            oneLit('three hundered')
         }   
         if (number[0] === '4' && number[1] === '0' && number[2] === '0') {
-            number = 'four hundered';
-            return number;
+            oneLit('four hundered')
         }  
         if (number[0] === '5' && number[1] === '0' && number[2] === '0') {
-            number = 'five hundered';
-            return number;
+            oneLit('five hundered')
         }  
         if (number[0] === '6' && number[1] === '0' && number[2] === '0') {
-            number = 'six hundered';
-            return number;
+            oneLit('six hundered')
         }  
         if (number[0] === '7' && number[1] === '0' && number[2] === '0') {
-            number = 'seven hundered';
-            return number;
+            oneLit('seven hundered')
         }  
         if (number[0] === '8' && number[1] === '0' && number[2] === '0') {
-            number = 'eight hundered';
-            return number;
+            oneLit('eight hundered')
         }  
         if (number[0] === '9' && number[1] === '0' && number[2] === '0') {
-            number = 'nine hundered';
-            return number;
+            oneLit('nine hundered')
         }  
-        if (number[0] === '1') {
-            hundered.push('one hundered and');
-            if (number[1] === '0') {
-                
+        switch (number[0]) {
+            case '1':
+                numArr.unshift('one hundered and');
+                decimCouter(1);
+            case '2':
+                numArr.unshift('two hundered and');
+                decimCouter(1);
+            case '3':
+                numArr.unshift('three hundered and');
+                decimCouter(1);
+            case '4':
+                numArr.unshift('four hundered and');
+                decimCouter(1);    
+            case '5':
+                numArr.unshift('five hundered and');
+                decimCouter(1);
+            case '6':
+                numArr.unshift('six hundered and');
+                decimCouter(1);
+            case '7':
+                numArr.unshift('seven hundered and');
+                decimCouter(1);
+            case '8':
+                numArr.unshift('eight hundered and');
+                decimCouter(1);    
+            case '9':
+                numArr.unshift('nine hundered and');
+                decimCouter(1);     
             }
         }
     }
-}
