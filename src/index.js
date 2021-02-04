@@ -43,138 +43,183 @@ module.exports = function toReadable (number) {
     }
     const unitAdder = function(y) {
         numArr.push(y);
-        numArrContainer = numArr.join(' ');
-        return numArrContainer;
     }
     const unitCounter = function (i) {
-        switch (number[i]) {
+        switch (numberArr[i]) {
             case '1':
                 unitAdder('one')
+                break;
             case '2':
                 unitAdder('two')
+                break;
             case '3':
                 unitAdder('three')
+                break;
             case '4':
                 unitAdder('four')
+                break;
             case '5':
                 unitAdder('five')
+                break;
             case '6':
                 unitAdder('six')
+                break;
             case '7':
-                unitAdder('seven')
+                unitAdder('seven');
+                break;
             case '8':
-                unitAdder('eight')
+                unitAdder('eight');
+                break;
             case '9':
                 unitAdder('nine')
+                break;
         }
     }
     const decimCouter = function (j) {
-        switch (number[j]) {
+        if (numberArr[j] === '1' && numberArr[j+1] === '0') {
+            numArr.push('ten');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '1') {
+            numArr.push('eleven');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '2') {
+            numArr.push('twelve');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '3') {
+            numArr.push('thirteen');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '4') {
+            numArr.push('fourteen');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '5') {
+            numArr.push('fifteen');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '6') {
+            numArr.push('sixteen');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '7') {
+            numArr.push('seventeen');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '8') {
+            numArr.push('eighteen');
+        }else if (numberArr[j] === '1' && numberArr[j+1] === '9') {
+            numArr.push('nineteen');
+        }else {
+        switch (numberArr[j]) {
             case '2':
-                numArr.unshift('twenty');
-                unitCounter(1);
+                numArr.push('twenty');
+                unitCounter(j+1);
+                break
             case '3':
-                numArr.unshift('therty');
-                unitCounter(1);
+                numArr.push('thirty');
+                unitCounter(j+1);
+                break;
             case '4':
-                numArr.unshift('fourty');
-                unitCounter(1);
+                numArr.push('forty');
+                unitCounter(j+1);
+                break;
             case '5':
-                numArr.unshift('fifthy');
-                unitCounter(1);
+                numArr.push('fifty');
+                unitCounter(j+1);
+                break;
             case '6':
-                numArr.unshift('sixty');
-                 unitCounter(1);
+                numArr.push('sixty');
+                 unitCounter(j+1);
+                break;
             case '7':
-                numArr.unshift('seventy');
-                unitCounter(1); 
+                numArr.push('seventy');
+                unitCounter(j+1); 
+                break;
             case '8':
-                numArr.unshift('eighty');
-                unitCounter(1);
+                numArr.push('eighty');
+                unitCounter(j+1);
+                break;
             case '9':
-                numArr.unshift('ninety');
-                unitCounter(1);
+                numArr.push('ninety');
+                unitCounter(j+1);
+                break;
+            case '0':
+                unitCounter(2);
+                break;
         }
+    }
     }
     if (numberArr.length === 1) {
         arrLooper(0);
         return numberArr;
     }
-    else if (number.length === 2) {
-            switch (number[0]) {
-                case '1' && '0':
-                    oneLit('ten');
-                case '1' && '1':
-                    oneLit('eleven');
-                case '1' && '2':
-                    oneLit('twelve'); 
-                case '1' && '3':
-                    oneLit('thirteen');
-                case '1' && '5':
-                    oneLit('fifteen');
-                case '2' && '0':
-                    oneLit('twenty');
-                case '3' && '0':
-                    oneLit('thirty');
-                }
-            decimCouter(0);   
+    else if (numberArr.length === 2) {
+            decimCouter(0);
+            numArrContainer = numArr.join(' ');
+            return numArrContainer;   
             }
-    else if (number.length === 3) {
-        if (number[0] === '1' && number[1] === '0' && number[2] === '0') {
-            oneLit('one hundered')
+    else if (numberArr.length === 3) {
+        if (numberArr[0] === '1' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('one hundred')
+            return numberArr;
         }  
-        if (number[0] === '2' && number[1] === '0' && number[2] === '0') {
-            oneLit('rwo hundered')
+        if (numberArr[0] === '2' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('two hundred')
+            return numberArr;
         }  
-        if (number[0] === '3' && number[1] === '0' && number[2] === '0') {
-            oneLit('three hundered')
+        if (numberArr[0] === '3' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('three hundred')
+            return numberArr;
         }   
-        if (number[0] === '4' && number[1] === '0' && number[2] === '0') {
-            oneLit('four hundered')
+        if (numberArr[0] === '4' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('four hundred')
+            return numberArr;
         }  
-        if (number[0] === '5' && number[1] === '0' && number[2] === '0') {
-            oneLit('five hundered')
+        if (numberArr[0] === '5' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('five hundred')
+            return numberArr;
         }  
-        if (number[0] === '6' && number[1] === '0' && number[2] === '0') {
-            oneLit('six hundered')
+        if (numberArr[0] === '6' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('six hundred')
+            return numberArr;
         }  
-        if (number[0] === '7' && number[1] === '0' && number[2] === '0') {
-            oneLit('seven hundered')
+        if (numberArr[0] === '7' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('seven hundred')
+            return numberArr;
         }  
-        if (number[0] === '8' && number[1] === '0' && number[2] === '0') {
-            oneLit('eight hundered')
+        if (numberArr[0] === '8' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('eight hundred')
+            return numberArr;
         }  
-        if (number[0] === '9' && number[1] === '0' && number[2] === '0') {
-            oneLit('nine hundered')
-        }  
-        switch (number[0]) {
+        if (numberArr[0] === '9' && numberArr[1] === '0' && numberArr[2] === '0') {
+            oneLit('nine hundred')
+            return numberArr;
+        }  else switch (numberArr[0]) {
             case '1':
-                numArr.unshift('one hundered and');
+                numArr.push('one hundred');
                 decimCouter(1);
+                break;
             case '2':
-                numArr.unshift('two hundered and');
+                numArr.unshift('two hundred');
                 decimCouter(1);
+                break;
             case '3':
-                numArr.unshift('three hundered and');
+                numArr.unshift('three hundred');
                 decimCouter(1);
+                break;
             case '4':
-                numArr.unshift('four hundered and');
-                decimCouter(1);    
+                numArr.unshift('four hundred');
+                decimCouter(1);
+                break;    
             case '5':
-                numArr.unshift('five hundered and');
+                numArr.unshift('five hundred');
                 decimCouter(1);
+                break;
             case '6':
-                numArr.unshift('six hundered and');
+                numArr.unshift('six hundred');
                 decimCouter(1);
+                break;
             case '7':
-                numArr.unshift('seven hundered and');
+                numArr.unshift('seven hundred');
                 decimCouter(1);
+                break;
             case '8':
-                numArr.unshift('eight hundered and');
-                decimCouter(1);    
+                numArr.unshift('eight hundred');
+                decimCouter(1);
+                break;    
             case '9':
-                numArr.unshift('nine hundered and');
-                decimCouter(1);     
+                numArr.unshift('nine hundred');
+                decimCouter(1);
+                break;     
             }
-        }
+        numArrContainer = numArr.join(' ')
+        return numArrContainer;
     }
+}
