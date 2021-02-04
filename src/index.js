@@ -1,34 +1,44 @@
 module.exports = function toReadable (number) {
     let numArr = [];
     let numArrContainer;
-    number = String(number);
-    number = number.split('');
+    numberStr = String(number);
+    numberArr = numberStr.split('');
     const oneLit = function (unitName) {
-        number = unitName;
-        return number;
+        numberArr.join('');
+        numberArr = unitName;
     }
     const arrLooper = function (indexArr) {
-        switch (number[indexArr]) {
+        switch (numberArr[indexArr]) {
             case '1': 
                 oneLit('one');
+                return numberArr;
             case '2':
                 oneLit('two');
+                return numberArr;
             case '3':
                 oneLit('three');
+                return numberArr;
             case '4':
                 oneLit('four');
+                return numberArr;
             case '5': 
                 oneLit('five');
+                return numberArr;
             case '6': 
                 oneLit('six');
+                return numberArr;
             case '7':
                 oneLit('seven');
+                return numberArr;
             case '8':
                 oneLit('eight');
+                return numberArr;
             case '9':
                 oneLit('nine');
+                return numberArr;
             case '0':
                 oneLit('zero');
+                return numberArr;
         } 
     }
     const unitAdder = function(y) {
@@ -86,8 +96,9 @@ module.exports = function toReadable (number) {
                 unitCounter(1);
         }
     }
-    if (number.length === 1) {
+    if (numberArr.length === 1) {
         arrLooper(0);
+        return numberArr;
     }
     else if (number.length === 2) {
             switch (number[0]) {
